@@ -1,4 +1,10 @@
 // create a variable with the type string that represents ComputerSeleciton and UserSelection
+let computerSelection = computerPlay();
+let userSelection = prompt("Choose rock, paper, or scissors").toLowerCase();
+
+console.log("The computer chose:", computerSelection);
+console.log("The user chose:", userSelection);
+
 
 // the computer selection will equate to computerPlay 
 // the UserSelection will equate to a prompt asking for choice. 
@@ -10,10 +16,6 @@ function computerPlay(){
     let randomSelection = (Math.floor(Math.random() * arrayOfChoices.length));
     return arrayOfChoices[randomSelection];
 } 
-// Create a random generator 
-        // intializing an array with the 3 options. 
-        // pick a random number between 0 & 2 w/ the math.random()*3  OR see if theres a way to return a random number from an array
-        // 
 
 // use console.log to check what computerPlay() returns
 

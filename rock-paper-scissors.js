@@ -2,7 +2,7 @@
 let randomComputerSelection = computerPlay();
 let userSelection = prompt("Choose rock, paper, or scissors").toLowerCase();
 
-playRound(userSelection, randomComputerSelection);
+console.log(playRound(userSelection, randomComputerSelection));
 // Randomly selects object to play 
 function computerPlay(){
     let arrayOfChoices = ['rock', 'paper', 'scissors'];
@@ -17,18 +17,18 @@ function playRound(playerSelection, computerSelection){
         case (playerSelection === "rock" && computerSelection === "paper"):
         case (playerSelection === "paper" && computerSelection === "scissors"):
         case (playerSelection === "scissors" && computerSelection === "rock"):
-            console.log(`You lose! You chose: ${playerSelection} and the computer chose: ${computerSelection}`);
+            return (`You Lose! You chose: ${playerSelection} and the computer chose: ${computerSelection}`);
             break;
         case (playerSelection === computerSelection):
-            console.log(`It's a Tie! You chose: ${playerSelection} and the computer chose: ${computerSelection}`);
+            return (`It's a Tie! You chose: ${playerSelection} and the computer chose: ${computerSelection}`);
             break;
         case (playerSelection === "paper" && computerSelection === "rock"):
         case (playerSelection === "scissors" && computerSelection === "paper"):
         case (playerSelection === "rock" && computerSelection === "scissors"):
-            console.log(`You Win! You chose: ${playerSelection} and the computer chose: ${computerSelection}`);
+            return (`You Win! You chose: ${playerSelection} and the computer chose: ${computerSelection}`);
             break;
         default:
-            console.log("Something went wrong :(.... Did you enter in a correct guess?")
+            return ("Something went wrong :(.... Did you enter in a correct guess?")
     }
 }
 

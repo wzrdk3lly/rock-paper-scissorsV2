@@ -22,8 +22,13 @@ function playRound(playerSelection, computerSelection){
         case (playerSelection === computerSelection):
             console.log(`It's a Tie! You chose: ${playerSelection} and the computer chose: ${computerSelection}`);
             break;
-        default:
+        case (playerSelection === "paper" && computerSelection === "rock"):
+        case (playerSelection === "scissors" && computerSelection === "paper"):
+        case (playerSelection === "rock" && computerSelection === "scissors"):
             console.log(`You Win! You chose: ${playerSelection} and the computer chose: ${computerSelection}`);
+            break;
+        default:
+            console.log("Something went wrong :(.... Did you enter in a correct guess?")
     }
 }
 

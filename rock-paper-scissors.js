@@ -1,8 +1,6 @@
-// initializes variables that takes in both the computer and user selections
-let randomComputerSelection = computerPlay();
-let userSelection = prompt("Choose rock, paper, or scissors").toLowerCase();
 
-console.log(playRound(userSelection, randomComputerSelection));
+
+// console.log(playRound(userSelection, randomComputerSelection));
 // Randomly selects object to play 
 function computerPlay(){
     let arrayOfChoices = ['rock', 'paper', 'scissors'];
@@ -10,9 +8,12 @@ function computerPlay(){
     return arrayOfChoices[randomSelection];
 } 
 
-// create a function to play a single round that takes in parameters of playerSelection and computerSelection and returns the string of if you lose or win.
-// Would prefer to use switch statements since it has the potential to contain alot of if and else statements. 
-function playRound(playerSelection, computerSelection){
+// plays a single round of rock, paper, scissors and returns string message of winner.
+function playRound(){
+    let computerSelection = computerPlay();
+    let playerSelection = prompt("Choose rock, paper, or scissors").toLowerCase();
+
+
     switch (true){
         case (playerSelection === "rock" && computerSelection === "paper"):
         case (playerSelection === "paper" && computerSelection === "scissors"):
@@ -29,6 +30,15 @@ function playRound(playerSelection, computerSelection){
             break;
         default:
             return ("Something went wrong :(.... Did you enter in a correct guess?")
+    }
+}
+// Play 5 rounds and keep track of score
+function game(){
+let playerScore = 0;
+let computerScore = 0;
+
+    for(let i = 1; i < 6; i++){
+
     }
 }
 

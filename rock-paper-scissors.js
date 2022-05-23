@@ -1,7 +1,6 @@
 
-
-// console.log(playRound(userSelection, randomComputerSelection));
-// Randomly selects object to play 
+game();
+// Randomly selects array object for the computer to play 
 function computerPlay(){
     let arrayOfChoices = ['rock', 'paper', 'scissors'];
     let randomSelection = (Math.floor(Math.random() * arrayOfChoices.length));
@@ -36,9 +35,25 @@ function playRound(){
 function game(){
 let playerScore = 0;
 let computerScore = 0;
+let result; 
 
     for(let i = 1; i < 6; i++){
-
+        result = playRound();
+        console.log(result);
+        switch(true){
+            case result.includes("Win"):
+                playerScore++;
+                break;
+            case result.includes("Lose"):
+                computerScore++;
+                break;
+            case result.includes("Tie"):
+                computerScore++;
+                playerScore++;
+                break;
+            default:
+        }
+        console.log(`end of round ${i}: your score is ${playerScore}... The computer's score is ${computerScore}`)
     }
 }
 

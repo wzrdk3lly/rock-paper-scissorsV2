@@ -1,5 +1,8 @@
+// This js file allows a user to play rock, paper, scissors, against the computer inside the console
+
 
 game();
+
 // Randomly selects array object for the computer to play 
 function computerPlay(){
     let arrayOfChoices = ['rock', 'paper', 'scissors'];
@@ -52,5 +55,3 @@ let roundResult;
         console.log(`end of round ${i}: your score is ${playerScore}... The computer's score is ${computerScore}`)
     }
 }
-
-

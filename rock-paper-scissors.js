@@ -35,21 +35,17 @@ function playRound(){
 function game(){
 let playerScore = 0;
 let computerScore = 0;
-let result; 
+let roundResult; 
 
     for(let i = 1; i < 6; i++){
-        result = playRound();
-        console.log(result);
+        roundResult = playRound();
+        console.log(roundResult);
         switch(true){
-            case result.includes("Win"):
+            case roundResult.includes("Win"):
                 playerScore++;
                 break;
-            case result.includes("Lose"):
+            case roundResult.includes("Lose"):
                 computerScore++;
-                break;
-            case result.includes("Tie"):
-                computerScore++;
-                playerScore++;
                 break;
             default:
         }

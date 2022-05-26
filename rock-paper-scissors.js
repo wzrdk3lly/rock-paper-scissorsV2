@@ -1,7 +1,6 @@
 // This js file allows a user to play rock, paper, scissors, against the computer inside the console
 
-
-game();
+// console.log(playRound());
 
 // Randomly selects array object for the computer to play 
 function computerPlay(){

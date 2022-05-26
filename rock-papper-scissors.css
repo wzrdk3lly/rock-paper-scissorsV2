@@ -1,0 +1,32 @@
+body{
+background-color: rgb(194, 192, 192);
+height: 100vh;
+width: auto;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+button{
+    width: 150px;
+    height: 70px;
+}
+
+.container{
+    width: 800px;
+    height: 500px;
+    background-color: rgba(85, 182, 238, 0.825);
+    border:1px solid ;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+}
+
+.button-container{
+    width: auto;
+    height: auto;
+    border: 1px solid;
+}
+
+
+

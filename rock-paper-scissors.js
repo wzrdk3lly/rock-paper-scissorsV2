@@ -1,6 +1,14 @@
-// This js file allows a user to play rock, paper, scissors, against the computer inside the console
+/*
+Overview: This js file allows a user to play rock, paper, scissors, against the computer 
+*/
 
-// console.log(playRound());
+const buttons = document.querySelectorAll('button');
+
+//Adds an event listener to each of the buttons to play one round upon button click
+buttons.forEach(button => {
+    button.addEventListener('click', playRound)
+});
+
 
 // Randomly selects array object for the computer to play 
 function computerPlay(){
@@ -10,29 +18,35 @@ function computerPlay(){
 } 
 
 // plays a single round of rock, paper, scissors and returns string message of winner.
-function playRound(){
+// The e is a way to access attributes inside of a function while an event is occurring
+function playRound(e){
     let computerSelection = computerPlay();
-    let playerSelection = prompt("Choose rock, paper, or scissors").toLowerCase();
-
-
+    // let playerSelection = prompt("Choose rock, paper, or scissors").toLowerCase();
+    let playerSelection = e.target.className;
+   
     switch (true){
         case (playerSelection === "rock" && computerSelection === "paper"):
         case (playerSelection === "paper" && computerSelection === "scissors"):
         case (playerSelection === "scissors" && computerSelection === "rock"):
-            return (`You Lose! You chose: ${playerSelection} and the computer chose: ${computerSelection}`);
+            // return (`You Lose! You chose: ${playerSelection} and the computer chose: ${computerSelection}`);
+           console.log(`You Lose! You chose: ${playerSelection} and the computer chose: ${computerSelection}`)
             break;
         case (playerSelection === computerSelection):
-            return (`It's a Tie! You chose: ${playerSelection} and the computer chose: ${computerSelection}`);
+            console.log(`It's a Tie! You chose: ${playerSelection} and the computer chose: ${computerSelection}`)
+            // return (`It's a Tie! You chose: ${playerSelection} and the computer chose: ${computerSelection}`);
             break;
         case (playerSelection === "paper" && computerSelection === "rock"):
         case (playerSelection === "scissors" && computerSelection === "paper"):
         case (playerSelection === "rock" && computerSelection === "scissors"):
-            return (`You Win! You chose: ${playerSelection} and the computer chose: ${computerSelection}`);
+            console.log(`You Win! You chose: ${playerSelection} and the computer chose: ${computerSelection}`)
+            // return (`You Win! You chose: ${playerSelection} and the computer chose: ${computerSelection}`);
             break;
         default:
-            return ("Something went wrong :(.... Did you enter in a correct guess?")
+            console.log("Something went wrong :(.... Did you enter in a correct guess?")
+            // return ("Something went wrong :(.... Did you enter in a correct guess?")
     }
 }
+
 // Play 5 rounds and keep track of score
 function game(){
 let playerScore = 0;

@@ -23,29 +23,37 @@ function playRound(e){
     let computerSelection = computerPlay();
     // let playerSelection = prompt("Choose rock, paper, or scissors").toLowerCase();
     let playerSelection = e.target.className;
+    
+    
+    // TODO: select the query 
+    const result = document.querySelector('.result')
+    // TODO: Add text content with the results of the game
+    // TODO: Add feature that styles the text in css or in the javascript.
+    //         - Find which strat applies to best practices? In css or Javascript
    
     switch (true){
         case (playerSelection === "rock" && computerSelection === "paper"):
         case (playerSelection === "paper" && computerSelection === "scissors"):
         case (playerSelection === "scissors" && computerSelection === "rock"):
             // return (`You Lose! You chose: ${playerSelection} and the computer chose: ${computerSelection}`);
-           console.log(`You Lose! You chose: ${playerSelection} and the computer chose: ${computerSelection}`)
+           result.textContent = (`You Lose! You chose: ${playerSelection} and the computer chose: ${computerSelection}`)
             break;
         case (playerSelection === computerSelection):
-            console.log(`It's a Tie! You chose: ${playerSelection} and the computer chose: ${computerSelection}`)
+            result.textContent = (`It's a Tie! You chose: ${playerSelection} and the computer chose: ${computerSelection}`)
             // return (`It's a Tie! You chose: ${playerSelection} and the computer chose: ${computerSelection}`);
             break;
         case (playerSelection === "paper" && computerSelection === "rock"):
         case (playerSelection === "scissors" && computerSelection === "paper"):
         case (playerSelection === "rock" && computerSelection === "scissors"):
-            console.log(`You Win! You chose: ${playerSelection} and the computer chose: ${computerSelection}`)
+            result.textContent = (`You Win! You chose: ${playerSelection} and the computer chose: ${computerSelection}`)
             // return (`You Win! You chose: ${playerSelection} and the computer chose: ${computerSelection}`);
             break;
         default:
-            console.log("Something went wrong :(.... Did you enter in a correct guess?")
+            result.textContent = ("Something went wrong :(.... Did you enter in a correct guess?")
             // return ("Something went wrong :(.... Did you enter in a correct guess?")
     }
 }
+
 
 // Play 5 rounds and keep track of score
 function game(){

@@ -10,22 +10,31 @@ justify-content: center;
 button{
     width: 150px;
     height: 70px;
+    border-radius: 10px;
 }
 
 .container{
     width: 800px;
     height: 500px;
     background-color: rgba(85, 182, 238, 0.825);
-    border:1px solid ;
+    /* border:1px solid ; */
+    border-radius: 10px;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content:center;
+    /* justify-content:center; */
+    gap: 30px;
 }
 
 .button-container{
     width: auto;
     height: auto;
-    border: 1px solid;
+    
+}
+
+.instructions{
+    padding: 5px;
+    margin:20px;
 }
 
 

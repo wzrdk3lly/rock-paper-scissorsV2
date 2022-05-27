@@ -15,7 +15,7 @@ button{
 
 .container{
     width: 800px;
-    height: 500px;
+    height: 440px;
     background-color: rgba(85, 182, 238, 0.825);
     /* border:1px solid ; */
     border-radius: 10px;
@@ -36,7 +36,7 @@ button{
 .instructions{
     padding: 5px;
     margin:20px;
-    padding-bottom: 85px;
+    padding-bottom: 44px;
 }
 
 .scoreboard{

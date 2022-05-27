@@ -1,12 +1,11 @@
 # rock-paper-scissorsV2
-Overview: I am creating a simple console game where users can play rock paper scissors.
-
+Overview: I created a rock, paper, scissors game where you will play against the computer.
 ## What I learned
 - toggling event listeners for game-play state
 - git branching
 - integrating new functionality into console/command like code
 - importance of refactoring + continuos program improvement
-- Manipulating the DOM 
+- Manipulating the DOM git
 
 ## Potential improvements
 -  Replace buttons with pictures representing each move

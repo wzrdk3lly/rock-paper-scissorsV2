@@ -29,12 +29,21 @@ button{
 .button-container{
     width: auto;
     height: auto;
+    padding-bottom: 20px;
     
 }
 
 .instructions{
     padding: 5px;
     margin:20px;
+    padding-bottom: 85px;
+}
+
+.scoreboard{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    font-size: 20px;
 }
 
 

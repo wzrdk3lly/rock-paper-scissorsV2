@@ -1,13 +1,23 @@
 /*
 Overview: This js file allows a user to play rock, paper, scissors, against the computer 
-*/
+*/ 
 
-const buttons = document.querySelectorAll('button');
+    let playerScore = 0;
+    let computerScore = 0;
+    let round = 0;
 
-//Adds an event listener to each of the buttons to play one round upon button click
-buttons.forEach(button => {
-    button.addEventListener('click', playRound)
-});
+    const buttons = document.querySelectorAll('button');
+
+    //TODO: Create a while loop that allows someone to play a game for 5 rounds only
+
+    //Adds an event listener to each of the buttons to play one round upon button click
+    buttons.forEach(button => {
+        button.addEventListener('click', playRound)
+    });
+    
+    
+
+    
 
 
 // Randomly selects array object for the computer to play 
@@ -25,9 +35,7 @@ function playRound(e){
     let playerSelection = e.target.className;
     
     
-    // TODO: select the query 
     const result = document.querySelector('.result')
-    // TODO: Add text content with the results of the game
     // TODO: Add feature that styles the text in css or in the javascript.
     //         - Find which strat applies to best practices? In css or Javascript
    
@@ -37,6 +45,7 @@ function playRound(e){
         case (playerSelection === "scissors" && computerSelection === "rock"):
             // return (`You Lose! You chose: ${playerSelection} and the computer chose: ${computerSelection}`);
            result.textContent = (`You Lose! You chose: ${playerSelection} and the computer chose: ${computerSelection}`)
+           computerScore++
             break;
         case (playerSelection === computerSelection):
             result.textContent = (`It's a Tie! You chose: ${playerSelection} and the computer chose: ${computerSelection}`)
@@ -46,17 +55,32 @@ function playRound(e){
         case (playerSelection === "scissors" && computerSelection === "paper"):
         case (playerSelection === "rock" && computerSelection === "scissors"):
             result.textContent = (`You Win! You chose: ${playerSelection} and the computer chose: ${computerSelection}`)
+            playerScore++
             // return (`You Win! You chose: ${playerSelection} and the computer chose: ${computerSelection}`);
             break;
         default:
             result.textContent = ("Something went wrong :(.... Did you enter in a correct guess?")
             // return ("Something went wrong :(.... Did you enter in a correct guess?")
     }
+    round++;
+
+    if (round >=5) {
+        if (playerScore > computerScore){
+            console.log(`You won: Home - ${playerScore} || Away - ${computerScore} `)
+        }
+        else{
+            buttonContainer[0].remove()
+            console.log(`You lost: Home - ${playerScore} || Away - ${computerScore} `)
+        }
+        buttons.forEach(button => {
+            button.removeEventListener('click', playRound)
+        });
+    }
 }
 
 
 // Play 5 rounds and keep track of score
-function game(){
+function fiveRoundGame(){
 let playerScore = 0;
 let computerScore = 0;
 let roundResult; 

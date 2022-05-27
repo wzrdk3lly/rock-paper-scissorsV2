@@ -6,38 +6,40 @@ let playerScore = 0;
 let computerScore = 0;
 let round = 0;
 
-const buttons = document.querySelectorAll('button');
+const buttons = document.querySelectorAll('.rps');
+let result = document.querySelector('.result');
+let roundDisplay = document.querySelector('.round');
+let playerScoreDisplay = document.querySelector('.player-score');
+let computerScoreDisplay = document.querySelector('.computer-score');
+
+// Show the player score as 0 when starting 
+roundDisplay.textContent = round
+playerScoreDisplay.textContent = playerScore;
+computerScoreDisplay.textContent = computerScore;
+
+
+
+activateButtons();
+
 
 //Adds an event listener to each of the buttons to play one round upon button click
-buttons.forEach(button => {
-    button.addEventListener('click', playFiveRounds)
-});
+function activateButtons(){
+    buttons.forEach(button => {
+        button.addEventListener('click', playFiveRounds)
+    });
+}
 
 
-// Randomly selects array object for the computer to play 
+// Randomly selects array item for the computer's move
 function computerPlay(){
     let arrayOfChoices = ['rock', 'paper', 'scissors'];
     let randomSelection = (Math.floor(Math.random() * arrayOfChoices.length));
     return arrayOfChoices[randomSelection];
 } 
 
-// plays a single round of rock, paper, scissors and returns string message of winner.
-// The e is a way to access attributes inside of a function while an event is occurring
-function playFiveRounds(e){
-
-    let computerSelection = computerPlay();
-
-    // let playerSelection = prompt("Choose rock, paper, or scissors").toLowerCase();
-    let playerSelection = e.target.className;
+function playRound(playerSelection,computerSelection){
     
-    
-    let result = document.querySelector('.result');
-    let roundDisplay = document.querySelector('.round');
-    let playerScoreDisplay = document.querySelector('.player-score');
-    let computerScoreDisplay = document.querySelector('.computer-score');
 
-   
-    // determines winner of one round - TODO: convert to function later 
     switch (true){
         case (playerSelection === "rock" && computerSelection === "paper"):
         case (playerSelection === "paper" && computerSelection === "scissors"):
@@ -59,24 +61,64 @@ function playFiveRounds(e){
         case (playerSelection === "rock" && computerSelection === "scissors"):
 
             result.textContent = (`You Win! You chose: ${playerSelection} and the computer chose: ${computerSelection}`);
+
             playerScore++;
             playerScoreDisplay.textContent = playerScore;
+
             break;
         default:
             result.textContent = ("Something went wrong :(.... Did you enter in a correct guess?");
     }
     round++;
     roundDisplay.textContent = round;
+}
 
+function determineWinner (){
     if (round >=5) {
         if (playerScore > computerScore){
-            result.textContent = "Congratulations you Won!!! Woohooo!"
+            result.textContent = "Congratulations you won!!! Woohooo!"
+        }
+        else if (playerScore < computerScore){
+            result.textContent = "Sorry chap, you lost. Maybe next time?"
         }
         else{
-            result.textContent = "Sorry chap, you lost. Maybe next time?"
+            result.textContent = "Looks like it's a tie. I think you can beat it in your next try"
         }
         buttons.forEach(button => {
             button.removeEventListener('click', playFiveRounds)
         });
     }
 }
+
+// Plays five rounds 
+function playFiveRounds(e){
+
+    let computerSelection = computerPlay();
+
+    // The e is a way to access attributes inside of a function while an event is occurring
+    let playerSelection = e.target.innerText;
+    
+    // Determines the winner of one round 
+    playRound(playerSelection,computerSelection);
+
+    determineWinner();
+
+    resetGame();
+}
+
+function resetGame(){
+    const reset = document.querySelector('.reset');
+    reset.addEventListener('click', () =>{
+        playerScore = 0;
+        computerScore = 0;
+        round = 0;
+
+        roundDisplay.textContent = round
+        playerScoreDisplay.textContent = playerScore;
+        computerScoreDisplay.textContent = computerScore
+        result.textContent = "Begin now by picking your first move";
+        activateButtons();
+    });
+    
+}
+
